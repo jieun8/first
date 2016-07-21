@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'blog',
     'webtoon',
+    'pockemon',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -109,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 

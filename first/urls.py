@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from blog import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    #url(r'^sum/(?P<x>\d+)/(?P<y>\d+)/(?P<z>\d+)/$', views.mysum),
+    #url(r'^sum/(?P<x>\d+)/(?P<y>\d+)/$', views.mysum),
+    #url(r'^sum/(?P<x>\d+)/$', views.mysum),
+
+    url(r'^sum/(?P<x>[\d/]+)/$', views.mysum2),
+    #[0-9]의 숫자나 /가 1회 이상 반복, \d = [0-9]
 ]
