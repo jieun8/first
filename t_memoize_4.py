@@ -1,11 +1,8 @@
 def deco(func):
-    new_list = []
     def wrap(*args):
-        for arg in args:
-            arg = abs(arg)
-            new_list.append(arg)
-        new_tuple = tuple(new_list)
-        return func(*new_tuple)
+        new_list = [abs(i) for i in args]
+        # 3) new_list = map(abs, args)
+        return func(*new_list)  # *args : unpacking
     return wrap
 
 @deco

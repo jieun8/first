@@ -13,16 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from blog import views
+from pockemon import views as pockemon_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^sum/(?P<x>\d+)/(?P<y>\d+)/(?P<z>\d+)/$', views.mysum),
     #url(r'^sum/(?P<x>\d+)/(?P<y>\d+)/$', views.mysum),
     #url(r'^sum/(?P<x>\d+)/$', views.mysum),
-
+    url(r'^pockemon/', pockemon_views.pockemon_list, name='pockemon_list'),
     url(r'^sum/(?P<x>[\d/]+)/$', views.mysum2),
     #[0-9]의 숫자나 /가 1회 이상 반복, \d = [0-9]
 ]

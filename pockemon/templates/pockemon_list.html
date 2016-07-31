@@ -1,0 +1,9 @@
+<h1>안녕하세요. 포켓몬 GO의 세상에 오신 것을 환영합니다.</h1>
+
+<table>
+{% for pockemon in pockemon_list %}
+<tr>
+    <td>{{ pockemon.po_name }}</td>
+</tr>
+{% endfor %}
+</table>
