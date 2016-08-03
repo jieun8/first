@@ -3,7 +3,7 @@ from django.db import models
 from django.forms import ValidationError
 from django.utils import timezone
 from .validators import *
-from .fields import PhoneNumberField
+from .fields import PhoneNumberField, ZipCodeField, PreZipCodeField
 
 
 class Post(models.Model):
@@ -38,5 +38,18 @@ class Tag(models.Model):
 
 
 class Contact(models.Model):
+
     name = models.CharField(max_length=30)
     phone_number1 = PhoneNumberField()
+    zip_code = ZipCodeField(blank=True)
+    pre_zip_code = PreZipCodeField(blank=True)
+    zip_test = models.CharField(max_length=20, validators=[ZipCodeValidator(True)])
+
+
+# 우편번호는 바뀌지 않기 때문에 DB에 저장해놓고 db와 communication하는 것이 더 좋다.
+class ZipCode(models.Model):
+    city = models.CharField(max_length=20)
+    road = models.CharField(max_length=20)
+    dong = models.CharField(max_length=20)
+    gu = models.CharField(max_length=20)
+    code = models.CharField(max_length=7)
